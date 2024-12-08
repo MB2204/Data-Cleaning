@@ -1,5 +1,3 @@
-Python Code for handling missing values.
-
 import pandas as pd
 import numpy as np
 
@@ -16,6 +14,11 @@ data['price'] = data['price'].apply(lambda x: np.nan if pd.isnull(x) else x)
 # Display the updated dataset
 print("\nDataset after replacing missing values in 'price' column with NaN:")
 print(data.head())
+
+# Find duplicate values
+duplicates = data[data.duplicated()]
+print("\nDuplicate Rows in the Dataset:")
+print(duplicates)
 
 # Save the updated dataset
 data.to_csv('demo_updated.csv', index=False)
